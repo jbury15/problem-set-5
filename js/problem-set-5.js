@@ -26,7 +26,6 @@ function mario() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 1 CODE HERE
 
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
@@ -189,7 +188,29 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
+  let stormType;
 
+while (windspeed % 1 != 0) {
+windspeed =   prompt( "Enter a Valid Windspeed")
+}
+if (windspeed <= 39) {
+    stormType = ("The skies are calm...")
+} else if (windspeed >= 39 && windspeed <=73) {
+    stormType = ("Tropical Storm.")
+} else if (windspeed >= 74 && windspeed <=95) {
+    stormType = ("Category 1 Hurricane.")
+} else if (windspeed >= 96 && windspeed <= 110) {
+    stormType = ("Category 2 Hurricane.")
+} else if (windspeed >= 111 && windspeed <= 129) {
+    stormType = ("Category 3 Hurricane.")
+} else if (windspeed >= 130 && windspeed <= 156) {
+    stormType = ("Category 4 Hurricane.")
+} else if (windspeed >= 157) {
+    stormType = ("Category 5 Hurricane.")
+}
+ var div = document.getElementById("hurricane-output");
+ windspeed = Number(windspeed);
+ div.innerHTML = (stormType);
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
   ///////////////////////////////// DO NOT MODIFY
