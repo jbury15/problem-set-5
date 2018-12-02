@@ -374,7 +374,7 @@ function reportCard() {
    *       grades the user enters, respectively.
    */
 
-  
+let testgrade = 0  
   while(true){
     testgrade = Number(prompt("Enter test grades."));
     if (testgrade == -1){
