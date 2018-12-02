@@ -210,12 +210,11 @@ function guess() {
          gcounter++;
          cguess = true 
          alert("Correct!");
-         let div4 = document.getElementById("guess-output")
-         div4.innerHTML= "Number: " +answer+"</br>Attempts: "+gcounter;
+         document.getElementById("guess-output").innerHTML="Number: " +answer+"</br>Attempts: "+gcounter;
        } else if (guess > answer){
          gcounter++;
          alert("Too high.");
-         else if (guess < answer){
+       } else if (guess < answer){
          gcounter ++;
          alert("Too low.");
          }
