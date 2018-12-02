@@ -100,7 +100,7 @@ function marioAgain() {
               linesN = linesN + hashSymbol;
             }
 
-            linesN = linesN + '&nbsp' + '&nbsp' + <br>";
+            linesN = linesN + '&nbsp' + '&nbsp' + "<br>";
           }
           let div2=document.getElementById("mario-hard-output")
           div2.innerHTML="<code>"+linesN+"</code>";
