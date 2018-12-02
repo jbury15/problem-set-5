@@ -30,7 +30,7 @@ function mario() {
       let spaceSymbol = '&nbsp'
       let linesN = '';
       while(true) {
-        height = Number(prompt("Enter An Integer Between 1 And 23"));
+        height = Number(prompt("Enter An integer Between 1 And 23"));
         if(height >= 1 && height <= 23 && Number.isInteger(height)) {
           for(let a=0; a<height; a++) {
 
@@ -204,7 +204,7 @@ function guess() {
   let gcounter = 0; 
   let cguess = false;
   while (cguess == false) {
-     let guess = Number(prompt"Enter A Random Number Between 1 and 1000."));
+     let guess= Number(prompt("Guess an integer between 1 and 1000."));
      if (guess >=1 && guess <=1000 && Number.isInteger(guess)){
        if (guess = answer){
          gcounter++;
