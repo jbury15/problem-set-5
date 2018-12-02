@@ -206,7 +206,7 @@ function guess() {
   while (cguess == false) {
      let guess= Number(prompt("Guess an integer between 1 and 1000."));
      if (guess >=1 && guess <=1000 && Number.isInteger(guess)){
-       if (guess = answer){
+       if (guess == answer){
          gcounter++;
          cguess = true 
          alert("Correct!");
@@ -374,6 +374,42 @@ function reportCard() {
    *       grades the user enters, respectively.
    */
 
+  
+  while(true){
+    testgrade = Number(prompt("Enter test grades."));
+    if (testgrade == -1){
+      break;
+    } else if (testgrade >= 0 && testgrades <=100){
+      testTotal = Number(testgrade) + testTotal;
+      tests++;
+    }
+  }
+  
+  while(true){
+    quizgrade = Number(prompt("Enter quiz grades."));
+    if (quizgrade == -1){
+      break;
+    } else if (quizgrade >= 0 && <= 100){
+      quizTotal = Number(quizgrade) + quizTotal;
+      quizzes++;
+    }
+  }
+  
+  while(true){
+    homeworkgrade = Number(prompt("Enter homeowrk grades".));
+    if (homeworkgrade == -1){
+      break;
+    } else if (homeworkgrade >= 0 && <= 100){
+      homeworkTotal = Number(homeworkgrade) + homeworkTotal;
+      homeworks++;
+    }
+  }
+  
+  let testaverage = (testTotal/tests).toFixed(2)
+  let quizaverage = (quizTotal/quizzes).toFixed(2)
+  let homeworkaverage = (homeworkTotal/homeworks).toFixed(2)
+  let grade = ((testaverage*.6)+(quizaverage*.3)+(homeworkaverage*.1)).toFixed(2)
+  document.getElementById("report-card-output").innerHTML= "Tests: "+testaverage+"</br>Quizzes: "+quizaverage+"</br>Homework: "+homeworkaverage+"</br>Grade: "+grade
   /////////////////////// DO NOT MODIFY
   check('report-card', // DO NOT MODIFY
     testTotal, ////////// DO NOT MODIFY
