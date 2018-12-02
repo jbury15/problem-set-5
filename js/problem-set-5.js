@@ -84,34 +84,30 @@ function marioAgain() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
-  let hashSymbol = '#';
-   let spaceSymbol = '&nbsp;'
-   let linesN = " ";
-   while(true) {
-     height = Number(prompt("Enter An Integer Between 1 And 23"));
-     if(height >= 1 && height <= 23 && Number.isInteger(height)) {
-       for(var a = 0; a < height; a++) {
+   let hashSymbol = '#';
+      let spaceSymbol = '&nbsp'
+      let linesN = '';
+      while(true) {
+        height = Number(prompt("Enter An Integer Between 1 And 23"));
+        if(height >= 1 && height <= 23 && Number.isInteger(height)) {
+          for(let a=0; a<height; a++) {
 
-         for(let b=0; b<=(height-2-a);b++) {
-           linesN = linesN + spaceSymbol;
-         }
+            for(let b=0; b<=(height-2-a);b++) {
+              linesN = linesN + spaceSymbol;
+            }
 
-         for(let c=0; c<=(1+a);c++) {
-           linesN = linesN + hashSymbol;
-         }
-         linesN = linesN + spaceSymbol + spaceSymbol;
+            for(let c=0; c<=(1+a);c++) {
+              linesN = linesN + hashSymbol;
+            }
 
-         linesN = linesN + "<br>";
-       }
-       for(let d = 0; d <=(1 + a); d++) {
-         linesN = linesN + spaceSymbol
-       }
-       let div2=document.getElementById("mario-hard-output")
-       div2.innerHTML="<code>"+linesN+"</code>";
-       break;
-     }
+            linesN = linesN + '&nbsp' + '&nbsp' + <br>";
+          }
+          let div2=document.getElementById("mario-hard-output")
+          div2.innerHTML="<code>"+linesN+"</code>";
+          break;
+        }
 
-   }
+      }
 
 
   //////////////////////////////// DO NOT MODIFY
