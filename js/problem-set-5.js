@@ -100,7 +100,7 @@ function marioAgain() {
               linesN = linesN + hashSymbol;
             }
 
-            linesN = linesN + '&nbsp' + '&nbsp' + linesN + "<br>";
+            linesN = linesN + spaceSymbol + spaceSymbol + linesN + "<br>";
           }
           let div2=document.getElementById("mario-hard-output")
           div2.innerHTML="<code>"+linesN+"</code>";
@@ -161,7 +161,7 @@ function credit() {
   let card; // DO NOT MODIFY
   //////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 3 CODE HERE
+
 
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
@@ -200,8 +200,29 @@ function credit() {
 
 function guess() {
 
-  // WRITE YOUR EXERCISE 4 CODE HERE
-
+  let answer = Math.floor((Math.random() * 999) + 1); 
+  let gcounter = 0; 
+  let cguess = false;
+  while (cguess == false) {
+     let guess = Number(prompt"Enter A Random Number Between 1 and 1000."));
+     if (guess >=1 && guess <=1000 && Number.isInteger(guess)){
+       if (guess = answer){
+         gcounter++;
+         cguess = true 
+         alert("Correct!");
+         let div4 = document.getElementById("guess-output")
+         div4.innerHTML= "Number: " +answer+"</br>Attempts: "+gcounter;
+       } else if (guess > answer){
+         gcounter++;
+         alert("Too high.");
+         else if (guess < answer){
+         gcounter ++;
+         alert("Too low.");
+         }
+       }
+     }
+       
+ 
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
   ////////////////// DO NOT MODIFY
