@@ -379,7 +379,7 @@ function reportCard() {
     testgrade = Number(prompt("Enter test grades."));
     if (testgrade == -1){
       break;
-    } else if (testgrade >= 0 && testgrades <=100){
+    } else if (testgrade>= 0 && testgrades<=100){
       testTotal = Number(testgrade) + testTotal;
       tests++;
     }
@@ -389,7 +389,7 @@ function reportCard() {
     quizgrade = Number(prompt("Enter quiz grades."));
     if (quizgrade == -1){
       break;
-    } else if (quizgrade >= 0 && <= 100){
+    } else if (quizgrade>= 0 && quizgrade<= 100){
       quizTotal = Number(quizgrade) + quizTotal;
       quizzes++;
     }
@@ -399,7 +399,7 @@ function reportCard() {
     homeworkgrade = Number(prompt("Enter homeowrk grades".));
     if (homeworkgrade == -1){
       break;
-    } else if (homeworkgrade >= 0 && <= 100){
+    } else if (homeworkgrade>= 0 && homeworkgrade<= 100){
       homeworkTotal = Number(homeworkgrade) + homeworkTotal;
       homeworks++;
     }
