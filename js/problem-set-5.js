@@ -380,7 +380,7 @@ let testgrade = 0
     if (testgrade == -1){
       break;
     } 
-    else if (testgrade>= 0 && testgrades<=100){
+    else if (testgrade>= 0 && testgrade<=100){
       testTotal = Number(testgrade) + testTotal;
       tests++;
     }
