@@ -396,7 +396,7 @@ function reportCard() {
   }
   
   while(true){
-    homeworkgrade = Number(prompt("Enter homeowrk grades".));
+    homeworkgrade = Number(prompt("Enter homeowrk grades."));
     if (homeworkgrade == -1){
       break;
     } else if (homeworkgrade>= 0 && homeworkgrade<= 100){
