@@ -84,30 +84,30 @@ function marioAgain() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
-   let hashSymbol = '#';
-      let spaceSymbol = '&nbsp'
-      let linesN = '';
-      while(true) {
-        height = Number(prompt("Enter An Integer Between 1 And 23"));
-        if(height >= 1 && height <= 23 && Number.isInteger(height)) {
-          for(let a=0; a<height; a++) {
-
-            for(let b=0; b<=(height-2-a);b++) {
-              linesN = linesN + spaceSymbol;
-            }
-
-            for(let c=0; c<=(1+a);c++) {
-              linesN = linesN + hashSymbol;
-            }
-
-            linesN = linesN + spaceSymbol + spaceSymbol + linesN + "<br>";
-          }
-          let div2=document.getElementById("mario-hard-output")
-          div2.innerHTML="<code>"+linesN+"</code>";
-          break;
-        }
-
+  while (true) {
+      height = Number(prompt("Please enter integer between 1 and 23."));
+      if(height>=1 && height<=23 && Number.isInteger(height)){
+        break;
       }
+
+    }
+    let i=1;
+    let hash= `#`;
+    let spaces= height-2;
+    let lines= "<code>";
+    while (i <= height){
+      let blank=``;
+      for(let b=0;b<=spaces;b++){
+        blank+= "&nbsp;";
+      }
+      spaces--;
+      hash+=`#`;
+      lines=lines+blank+hash+"&nbsp"+"&nbsp"+hash+"</br>";
+      i++;
+    }
+  //lines = lines + "<br>";
+  document.getElementById("mario-hard-output").innerHTML=lines;
+  lines=lines+"</code>"
 
 
   //////////////////////////////// DO NOT MODIFY
@@ -162,7 +162,60 @@ function credit() {
   //////////// DO NOT MODIFY
 
 
+  let evennums = 0;
+    let oddnums = 0;
+    let cardnum = 0;
 
+    while (true) {
+      card = prompt("Enter Credit Card");
+      cardnum = Number(card);
+      if (Number.isInteger(Number(card))){
+        //if (card.length == 16 || card.length == 15 || card.length == 13) {
+          //console.log("1length")
+          break;
+        //}
+      }
+    }
+
+    for(let i=card.length - 2; i>=0; i-=2) {
+      let temp = Number(card[i])*2;
+      let tempstr = temp.toString();
+      let tempint = 0;
+      let temparr = [];
+      for(k=0; k < tempstr.length; k++) {
+        tempint = tempint + Number(tempstr[k])
+      }
+      evennums = evennums + tempint;
+      //evennums = evennums + Number(card[i])*2;
+      //console.log("2evan " + evennums + " " + temp + " " + tempint);
+    }
+    for(let j=card.length - 1; j>=0; j-=2) {
+      oddnums = oddnums + Number(card[j]);
+      //console.log("2odd " + oddnums + " " + Number(card[j]));
+    }
+
+    if(((evennums + oddnums)%10 == 0) &&
+      (card.length == 13 || card.length == 16) && (card[0] == 4)) {
+      document.getElementById("credit-output").innerHTML="<img src='./images/visa.png'>";
+      //console.log("visa");
+    }
+    else if(((evennums + oddnums)%10 == 0) && (card.length == 15) &&
+      (card[0] == 3 && (card[1] == 4 || card[1] == 7))) {
+      document.getElementById("credit-output").innerHTML="<img src='./images/amex.png'>";
+      //console.log("amex");
+    }
+    else if(((evennums + oddnums)%10 == 0) && (card.length == 16) &&
+      (card[0] == 5 && (card[1] == 1 || card[1] == 2 || card[1] == 3 || card[1] == 4 || card[1] == 5))) {
+      document.getElementById("credit-output").innerHTML="<img src='./images/mastercard.png'>";
+      //console.log("master");
+    }
+    else {
+      document.getElementById("credit-output").innerHTML="<img src='./images/invalid.png'>";
+      //console.log("inv");
+    }
+
+    card = cardnum;
+    console.log(typeof(card));
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
    *       variable, do not modify it. If you find it necessary to manipulate
@@ -200,15 +253,15 @@ function credit() {
 
 function guess() {
 
-  let answer = Math.floor((Math.random() * 999) + 1); 
-  let gcounter = 0; 
+  let answer = Math.floor((Math.random() * 999) + 1);
+  let gcounter = 0;
   let cguess = false;
   while (cguess == false) {
      let guess= Number(prompt("Guess an integer between 1 and 1000."));
      if (guess >=1 && guess <=1000 && Number.isInteger(guess)){
        if (guess == answer){
          gcounter++;
-         cguess = true 
+         cguess = true
          alert("Correct!");
          document.getElementById("guess-output").innerHTML="Number: " +answer+"</br>Attempts: "+gcounter;
        } else if (guess > answer){
@@ -220,8 +273,8 @@ function guess() {
          }
        }
      }
-       
- 
+
+
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
   ////////////////// DO NOT MODIFY
@@ -321,7 +374,67 @@ function gymnastics() {
    *       scores.push(firstScore);   // your variable names for your scores
    *       scores.push(secondScore);  // will likely be different than mine
    */
+   let valid = false;
+   let fourscore = [];
+   let average = 0;
 
+  //user input loop
+  while (valid == false) {
+    valid = true
+    let usrscores = prompt("Enter 6 Scores Between 0.0 and 10.0 separated by spaces");
+    scores = usrscores.split(" ");
+    for (i=0; i<scores.length; i++) {
+      if(0.0 < Number(scores[i]) < 10.0) {
+        scores[i] = Number(scores[i]);
+        //console.log(typeof(scores[i]));
+
+      }
+      else {
+        valid = false;
+      }
+    }
+  }
+  //sorting function
+  //scores.sort(function(a, b) {return a-b});
+
+  //Insertion Sort For Loop
+  for(let h = 0; h <= scores.length-1; h++) {
+    let k;
+    let el = scores[h];
+    for (k = h-1; k>=0 && (scores[k] > el); k--) {
+      scores[k+1] = scores[k];
+    }
+    scores[k+1] = el;
+
+  }
+  console.log(scores);
+
+  let min = scores[0];
+  let max = scores[scores.length - 1];
+  //console.log(typeof(min));
+  //console.log(typeof(max));
+
+  let origscores = Array.from(scores);
+  //console.log("Origscores 1:")
+  //console.log(origscores);
+
+  scores.splice(0, 1);
+  scores.splice(scores.length - 1, 1);
+
+  //console.log(scores)
+
+  for (j=0;j<=scores.length - 1;j++) {
+    average += scores[j];
+    //console.log(typeof(scores[j]));
+
+  }
+  average = average/scores.length;
+  average = average.toFixed(2);
+  document.getElementById("gymnastics-output").innerHTML = "Discarded: " + min + ", " + max + "<br/>Score: " + average;
+
+  scores = origscores;
+  //console.log(origscores);
+  //console.log(scores);
   /////////////////////////////// DO NOT MODIFY
   check('gymnastics', scores); // DO NOT MODIFY
   /////////////////////////////// DO NOT MODIFY
@@ -374,42 +487,42 @@ function reportCard() {
    *       grades the user enters, respectively.
    */
 
-let testgrade = 0  
+let testgrade = 0
   while(true){
     testgrade = Number(prompt("Enter test grades."));
     if (testgrade == -1){
       break;
-    } 
+    }
     else if (testgrade>= 0 && testgrade<=100){
       testTotal = Number(testgrade) + testTotal;
       tests++;
     }
   }
-  
+
   let quizgrade = 0
   while(true){
     quizgrade = Number(prompt("Enter quiz grades."));
     if (quizgrade == -1){
       break;
-    } 
+    }
     else if (quizgrade>= 0 && quizgrade<= 100){
       quizTotal = Number(quizgrade) + quizTotal;
       quizzes++;
     }
   }
-  
+
   let homeworkgrade = 0
   while(true){
     homeworkgrade = Number(prompt("Enter homeowrk grades."));
     if (homeworkgrade == -1){
       break;
-    } 
+    }
     else if (homeworkgrade>= 0 && homeworkgrade<= 100){
       homeworkTotal = Number(homeworkgrade) + homeworkTotal;
       homeworks++;
     }
   }
-  
+
   let testaverage = (testTotal/tests).toFixed(2)
   let quizaverage = (quizTotal/quizzes).toFixed(2)
   let homeworkaverage = (homeworkTotal/homeworks).toFixed(2)
